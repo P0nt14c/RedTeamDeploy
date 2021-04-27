@@ -51,6 +51,12 @@ services:
         build: images/proxy/
         ports:
             - 80:80
+        depends_on:
+            - crowdcontrol
+            - chainsaw
+            - library
+            - spin
+            - pwnboard
         volumes:
             # List all the servers that we want to proxy here
             - ./images/proxy/servers/chainsaw.conf:/etc/nginx/conf.d/chainsaw.conf:ro
